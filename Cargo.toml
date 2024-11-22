@@ -1,0 +1,21 @@
+[package]
+name = "zsh-history-to-fish"
+version = "0.1.0"
+edition = "2021"
+description = "Convert ZSH history file to Fish history"
+
+[dependencies]
+anyhow = "1.0.93"
+clap = { version = "4.5.21", features = ["derive"] }
+regex = "1.11.1"
+tokio = { version = "1.41.1", features = ["fs", "io-util", "rt-multi-thread", "macros"] }
+
+[profile.dev]
+debug = 0
+
+[profile.release]
+opt-level = "z"
+strip = true
+lto = true
+codegen-units = 1
+panic = "abort"
